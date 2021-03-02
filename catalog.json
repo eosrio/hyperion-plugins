@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    {
+      "name": "simpleassets",
+      "desc": "SimpleAssets Indexer Modules and API",
+      "repo": "",
+      "tag": "0.0.1"
+    }
+  ]
+}
