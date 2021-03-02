@@ -5,6 +5,12 @@
       "desc": "SimpleAssets Indexer Modules and API",
       "repo": "",
       "tag": "0.0.1"
+    },
+    {
+      "name": "telos-evm",
+      "desc": "Telos EVM API",
+      "repo": "",
+      "tag": "0.0.1"
     }
   ]
 }
