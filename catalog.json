@@ -9,7 +9,7 @@
     {
       "name": "telos-evm",
       "desc": "Telos EVM API",
-      "repo": "",
+      "repo": "https://github.com/eosrio/hyperion-telos-evm-plugin",
       "tag": "0.0.1"
     }
   ]
