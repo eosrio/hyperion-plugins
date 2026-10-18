@@ -4,6 +4,9 @@ The official EOS Rio catalog repository for Hyperion plugins and their declared 
 
 ## Hyperion 4.5 organization
 
+Track [catalog/SDK foundation issue #19](https://github.com/eosrio/hyperion-tools/issues/19) and
+[release coordination #24](https://github.com/eosrio/hyperion-tools/issues/24).
+
 The [approved architecture](https://github.com/eosrio/hyperion-tools/blob/a36fda12ba813968ce361e85893206d8f5bceb0f/docs/architecture/hyperion-4.5.md) and
 [release roadmap](https://github.com/eosrio/hyperion-tools/blob/a36fda12ba813968ce361e85893206d8f5bceb0f/docs/roadmap/hyperion-4.5.md) define the extension model.
 
