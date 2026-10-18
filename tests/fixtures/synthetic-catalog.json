@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "components": [
+    {
+      "repository": "https://example.invalid/fixture/example-plugin",
+      "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "manifest": {
+        "schemaVersion": 1,
+        "package": "@fixture/example-plugin",
+        "version": "1.0.0",
+        "kind": "plugin",
+        "compatibility": { "hyperion": "^4.5.0", "sdk": "^1.0.0" }
+      }
+    },
+    {
+      "repository": "https://example.invalid/fixture/mongodb-adapter",
+      "commit": "dddddddddddddddddddddddddddddddddddddddd",
+      "manifest": {
+        "schemaVersion": 1,
+        "package": "@fixture/mongodb-adapter",
+        "version": "1.0.0",
+        "kind": "backend-adapter",
+        "compatibility": {
+          "hyperion": "^4.5.0",
+          "sdk": "^1.0.0",
+          "engines": [{ "name": "mongodb", "range": ">=7.0.0 <9.0.0" }]
+        }
+      }
+    }
+  ],
+  "testedSets": [
+    {
+      "id": "synthetic-fixture-only",
+      "hyperion": { "version": "4.5.0", "commit": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" },
+      "sdk": { "version": "1.0.0", "commit": "cccccccccccccccccccccccccccccccccccccccc" },
+      "components": [
+        { "package": "@fixture/example-plugin", "version": "1.0.0", "commit": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" },
+        { "package": "@fixture/mongodb-adapter", "version": "1.0.0", "commit": "dddddddddddddddddddddddddddddddddddddddd" }
+      ],
+      "engines": { "mongodb": "8.0.1" },
+      "evidence": ["https://example.invalid/synthetic-fixture-not-runtime-evidence"]
+    }
+  ]
+}

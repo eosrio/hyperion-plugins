@@ -1,0 +1,14 @@
+{
+  "name": "@eosrio/hyperion-plugin-catalog-development",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "validate": "node scripts/validate-catalog-v1.mjs",
+    "check:legacy": "python scripts/validate-catalog.py"
+  },
+  "dependencies": {
+    "@eosrio/hyperion-sdk": "git+https://github.com/eosrio/hyperion-sdk.git#8be63ea590b015d8c56a1269afc2fe4be3c8a1e0"
+  }
+}
