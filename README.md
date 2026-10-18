@@ -4,6 +4,9 @@ The official EOS Rio catalog repository for Hyperion plugins and their declared 
 
 ## Hyperion 4.5 organization
 
+[SDK, runtime and adapter source homes](https://github.com/eosrio/hyperion-tools/blob/458e1127b99c025251055e160129010edcecc78a/docs/architecture/hyperion-4.5-component-homes.md)
+define package ownership; assigned homes are not implementation or release-support claims.
+
 Track [catalog/SDK foundation issue #19](https://github.com/eosrio/hyperion-tools/issues/19) and
 [release coordination #24](https://github.com/eosrio/hyperion-tools/issues/24).
 
