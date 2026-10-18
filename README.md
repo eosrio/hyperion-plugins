@@ -18,18 +18,26 @@ First-party development repositories:
 
 These repositories are development scaffolds. No 4.5-compatible plugin releases are declared here.
 
-## Current catalog and migration
+## Versioned compatibility metadata
+
+[catalog.v1.json](catalog.v1.json) contains the schema 1 declarations and exact tested sets.
+It is intentionally empty while 4.5 components are under development. Read the
+[format and qualification policy](docs/catalog-v1.md) before adding an entry.
+The validator uses the SDK's component manifest and compatibility checks; it does not install,
+import or update executable plugins.
+
+The [synthetic fixture](tests/fixtures/synthetic-catalog.json) demonstrates the format only.
+Its names, versions, commits and evidence URLs are invented for tests.
+
+## Legacy catalog and migration
 
 [catalog.json](catalog.json) retains its existing SimpleAssets and Telos EVM entries and legacy
 format. Those entries do not declare 4.5 SDK/core compatibility; their presence is not qualification.
 
-P01 in the [initial issue batch](https://github.com/eosrio/hyperion-tools/blob/a36fda12ba813968ce361e85893206d8f5bceb0f/docs/roadmap/hyperion-4.5-initial-issues.md) tracks the
-compatibility metadata format, validation fixtures, consumer audit and explicit legacy-entry policy.
-This preparation does not migrate the catalog format or invent release pins.
-
-Before introducing compatibility metadata, identify consumers and document their migration.
-Declare compatible SDK/core versions, exact qualified artifacts and required components through the
-reviewed format. Keep engine versions distinct from adapter package versions.
+The [consumer audit and migration policy](docs/legacy-consumers.md) records the checked scope
+and remaining limits. Existing consumers can continue using `catalog.json`; consumers adopting
+compatibility checks must opt into `catalog.v1.json`. No legacy entry is automatically converted
+into a qualified release.
 
 ## Operator and release policy
 
@@ -40,7 +48,21 @@ reviewed format. Keep engine versions distinct from adapter package versions.
 - Only record supported versions after applicable conformance and integration qualification.
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) and [AGENTS.md](AGENTS.md).
-Run `python scripts/validate-catalog.py` to check the existing catalog structure.
-This check does not establish artifact integrity or runtime compatibility.
+With Node.js 22 or newer and Python available, run:
+
+```sh
+npm ci
+npm test
+npm run validate
+python scripts/validate-catalog.py
+```
+
+These checks validate metadata and rejection behavior. They do not establish artifact integrity
+or runtime compatibility. The SDK dependency is a pinned development source revision, not a
+qualified Hyperion release pin.
+
+If your npm policy blocks Git dependencies, versions supporting `allow-git` can use
+`npm ci --allow-git=root` to allow only direct Git dependencies from this manifest. The only
+one is the SDK's exact source revision; a global Git-fetch allowance is unnecessary.
 
 Licensed under [MIT](LICENSE).

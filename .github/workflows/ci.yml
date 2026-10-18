@@ -16,5 +16,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate legacy catalog structure
         run: python3 scripts/validate-catalog.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install pinned metadata tooling
+        run: npm ci
+      - name: Test versioned catalog acceptance and rejection
+        run: npm test
+      - name: Validate checked-in compatibility metadata
+        run: npm run validate
       - name: Check whitespace
         run: git diff --check $(git hash-object -t tree /dev/null) HEAD
