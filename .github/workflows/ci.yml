@@ -1,0 +1,20 @@
+name: Catalog checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalog:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate legacy catalog structure
+        run: python3 scripts/validate-catalog.py
+      - name: Check whitespace
+        run: git diff --check $(git hash-object -t tree /dev/null) HEAD
