@@ -9,16 +9,24 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   catalog:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [24, 26]
     steps:
       - uses: actions/checkout@v4
       - name: Validate legacy catalog structure
+        if: matrix.node == 26
         run: python3 scripts/validate-catalog.py
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: ${{ matrix.node }}
           cache: npm
       - name: Install pinned metadata tooling
         run: npm ci

@@ -51,7 +51,7 @@ into a qualified release.
 - Only record supported versions after applicable conformance and integration qualification.
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md) and [AGENTS.md](AGENTS.md).
-With Node.js 22 or newer and Python available, run:
+With Node.js 24 or newer and Python available, run:
 
 ```sh
 npm ci
